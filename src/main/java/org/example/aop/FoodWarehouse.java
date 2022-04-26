@@ -11,37 +11,35 @@ import org.springframework.stereotype.Component;
 @Component("fwhBean")
 public class FoodWarehouse extends Warehouse {
 
-    @Value("warehouse")
-    private String foodWarehouseName;
-    private WarehouseCharacteristics warehouseCharacteristics;
-    private Product product;
-
 //    public FoodWarehouse(){}
 
-
     @Autowired
-    public FoodWarehouse(WarehouseCharacteristics warehouseCharacteristics, Product product) {
-        this.warehouseCharacteristics = warehouseCharacteristics;
-        this.product = product;
+    public FoodWarehouse(@Value("${warehouse.warehouseName}") String warehouseName,
+                         WarehouseCharacteristics wc, Product product) {
+        super(warehouseName, wc, product);
     }
 
     @Override
-    public void addProductOnTheWarehouse() {
-
+    public void addProductToTheWarehouse() {
+        System.out.println("добавляем продукт на склад (метод addProductToTheWarehouse())");
+        System.out.println("----------------");
     }
 
     @Override
-    public void getProductOnTheWarehouse() {
-
+    public void getProductFromTheWarehouse() {
+        System.out.println("получаем продукт со склада (метод getProductFromTheWarehouse())");
+        System.out.println("----------------");
     }
 
     @Override
     public void changeProduct() {
-
+        System.out.println("изменияем продукт (метод changeProduct())");
+        System.out.println("----------------");
     }
 
     @Override
-    public void removeProductOnTheWarehouse() {
-
+    public void removeProductFromTheWarehouse() {
+        System.out.println("удаляем продукт (метод removeProductFromTheWarehouse())");
+        System.out.println("----------------");
     }
 }

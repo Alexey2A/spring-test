@@ -10,15 +10,15 @@ import org.springframework.stereotype.Component;
 
 @Component("racksBean")
 public class Racks {
-    @Value("1.5")
+    @Value("${racks.width}")
     private double width;
-    @Value("2.0")
+    @Value("${racks.height}")
     private double height;
-    @Value("0.8")
+    @Value("${racks.depth}")
     private double depth;
-    @Value("4")
+    @Value("${racks.numberOfShelves}")
     private short numberOfShelves;
-    @Value("30")
+    @Value("${racks.numberOfRacks}")
     private int numberOfRacks;
 
     public double getWidth() {

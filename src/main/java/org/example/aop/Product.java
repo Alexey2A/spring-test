@@ -9,31 +9,32 @@ import org.springframework.stereotype.Component;
 @Component("productBean")
 public class Product {
 
-    private long id;
-    private int article;
-    @Value("product")
+    @Value("${product.productName}")
     private String productName;
+    @Value("${product.weightInKilograms}")
     private double weightInKilograms;
+    @Value("${product.numberOfPieces}")
     private int numberOfPieces;
 
     public Product() {
     }
 
-    public Product(long id, int article, String productName,
-                   double weightInKilograms, int numberOfPieces) {
-        this.id = id;
-        this.article = article;
+    private Product(String productName) {
+
         this.productName = productName;
+    }
+    public Product(String productName, double weightInKilograms){
+        this(productName);
         this.weightInKilograms = weightInKilograms;
+    }
+    public Product(String productName, int numberOfPieces){
+        this(productName);
         this.numberOfPieces = numberOfPieces;
     }
-
-    public long getId() {
-        return id;
-    }
-
-    public int getArticle() {
-        return article;
+    public Product(String productName, double weightInKilograms, int numberOfPieces){
+        this(productName);
+        this.weightInKilograms = weightInKilograms;
+        this.numberOfPieces = numberOfPieces;
     }
 
     public String getProductName() {

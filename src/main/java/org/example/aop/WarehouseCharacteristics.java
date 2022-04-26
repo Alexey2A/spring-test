@@ -9,10 +9,10 @@ import org.springframework.stereotype.Component;
 
 @Component("wcBean")
 public class WarehouseCharacteristics {
-    @Value("1000")
+    @Value("${warehouseCharacteristics.warehouseAreaInMetersSquared}")
     private double warehouseAreaInMetersSquared;    // площадь склада в квадратных метрах
     private Racks racks;    // стеллажи
-    @Value("2")
+    @Value("${warehouseCharacteristics.numberOfForkliftTrucks}")
     private short numberOfForkliftTrucks;   // количество вилочных погрузчиков
 
     @Autowired

@@ -5,8 +5,6 @@ abstract public class Warehouse {
     private WarehouseCharacteristics warehouseCharacteristics;
     private Product product;
 
-    public Warehouse(){}
-
     public Warehouse(String warehouseName,
                      WarehouseCharacteristics wc, Product product){
         this.warehouseName=warehouseName;
@@ -14,15 +12,10 @@ abstract public class Warehouse {
         this.product=product;
     }
 
-    abstract public void addProductOnTheWarehouse();
-
-    abstract public void getProductOnTheWarehouse();
+    abstract public void addProductToTheWarehouse();
+    abstract public void getProductFromTheWarehouse();
     abstract public void changeProduct();
-    abstract public void removeProductOnTheWarehouse();
-
-    public void setWarehouseName(String warehouseName) {
-        this.warehouseName = warehouseName;
-    }
+    abstract public void removeProductFromTheWarehouse();
 
     public String getWarehouseName() {
         return warehouseName;
@@ -32,15 +25,7 @@ abstract public class Warehouse {
         return warehouseCharacteristics;
     }
 
-    public void setWarehouseCharacteristics(WarehouseCharacteristics warehouseCharacteristics) {
-        this.warehouseCharacteristics = warehouseCharacteristics;
-    }
-
     public Product getProduct() {
         return product;
-    }
-
-    public void setProduct(Product product) {
-        this.product = product;
     }
 }
